@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+
 const API_KEY = "43236176-8efbdba212834d112cbf0fa21";
 const BASE_URL = 'https://pixabay.com/api/?';
 
@@ -12,9 +14,9 @@ export function fetchImages(searchValue) {
     safesearch: true,
   });
 
-    return fetch(`${BASE_URL}${SEARCH_PARAMS}`)
-        .then(response => {
-    if (!response.ok) throw new Error(response.statusText);
-    return response.json();
-  });
+  return fetch(`${BASE_URL}${SEARCH_PARAMS}`)
+    .then(response => {
+      if (!response.ok) throw new Error(response.statusText);
+      return response.json();
+    });
 }
