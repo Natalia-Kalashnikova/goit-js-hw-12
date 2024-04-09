@@ -7,7 +7,7 @@ const lightbox = new SimpleLightbox('.gallery-list a', {
 });
 
 export function getGallery(parent, arr) {
-  parent.innerHTML = getMarkup(arr);
+  parent.innerHTML += getMarkup(arr);
   lightbox.refresh();
 }
 
