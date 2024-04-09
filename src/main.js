@@ -25,9 +25,11 @@ async function handlerSearch(event) {
     currentPage = 1;
     currentSearchValue = input.value.trim();
 
+    loadMoreBtn.classList.add('is-hidden');
+
     if (currentSearchValue === '') {
         errorMessage(`Please fill out the input field!`);
-        return;            
+        return;
     }
 
     loader.classList.remove('is-hidden');
@@ -88,13 +90,13 @@ function smoothScrollByGalleryHeight() {
 }
 
 const iziToastParam = {
-    title: '',    
+    title: '',
     position: 'topRight',
     backgroundColor: '#ef4040',
     messageColor: '#fff',
     titleColor: '#fff',
     timeout: 3000,
-    pauseOnHover: false, 
+    pauseOnHover: false,
 }
 
 function errorMessage(message) {
