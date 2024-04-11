@@ -15,11 +15,11 @@ let currentPage = 1;
 let currentSearchValue = '';
 
 
-searchForm.addEventListener('submit', handlerSearch);
+searchForm.addEventListener('submit', handleSearch);
 
 loadMoreBtn.addEventListener('click', loadMoreImages);
 
-async function handlerSearch(event) {
+async function handleSearch(event) {
     event.preventDefault();
     galleryList.innerHTML = '';
     currentPage = 1;
