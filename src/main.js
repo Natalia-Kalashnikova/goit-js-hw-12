@@ -59,6 +59,8 @@ async function loadMoreImages() {
 
     try {
         const data = await fetchImages(currentSearchValue, currentPage);
+
+        // Перевірка на випадок пустої відповіді від API
         
         if (data.hits.length === 0) {
             loadMoreBtn.classList.add('is-hidden');
@@ -68,6 +70,15 @@ async function loadMoreImages() {
 
         getGallery(galleryList, data.hits);
         smoothScrollByGalleryHeight();
+
+        const totalPages = Math.ceil(data.totalHits / PER_PAGE);
+        if (currentPage >= totalPages) {
+            loadMoreBtn.classList.add('is-hidden');
+            iziToast.info({
+                ...iziToastParam,
+                message: `We're sorry, but you've reached the end of search results.`,
+            });
+        }
     } catch (error) {
         console.error(error);
     } finally {
